@@ -1,0 +1,10 @@
+name: KnowItAll
+main: net.lethargiclion.knowitall.KnowItAll
+version: 0.1
+
+# No commands
+
+permissions:
+    knowitall.exempt:
+        description: This user will be exempt from logging.
+        default: false
