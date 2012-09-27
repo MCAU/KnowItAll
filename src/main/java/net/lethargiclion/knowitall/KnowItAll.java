@@ -24,7 +24,6 @@ public class KnowItAll extends JavaPlugin {
 
 	//ClassListeners
 	private final KnowItAllCommandExecutor commandExecutor = new KnowItAllCommandExecutor(this);
-	private final KnowItAllEventListener eventListener = new KnowItAllEventListener(this);
 	//ClassListeners
 
 	public void onDisable() {
@@ -37,10 +36,5 @@ public class KnowItAll extends JavaPlugin {
 
 		getCommand("command").setExecutor(commandExecutor);
 
-		// you can register multiple classes to handle events if you want
-		// just call pm.registerEvents() on an instance of each class
-		pm.registerEvents(eventListener, this);
-
-		// do any other initialisation you need here...
 	}
 }

@@ -20,10 +20,10 @@ package net.lethargiclion.knowitall;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 public class KnowItAllCommandExecutor implements CommandExecutor {
 
+    @SuppressWarnings("unused")
     private KnowItAll plugin;
 
     public KnowItAllCommandExecutor(KnowItAll plugin) {
@@ -32,13 +32,14 @@ public class KnowItAllCommandExecutor implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        plugin.getLogger().info("onCommand Reached in KnowItAll");
+        // Currently there are no commands in KnowItAll
 
+        /*
         if (command.getName().equalsIgnoreCase("command")) {
-	    plugin.getLogger().info("command used");
             //do something
             return true;
-        }
+        }*/
+        
         return false;
     }
 }
