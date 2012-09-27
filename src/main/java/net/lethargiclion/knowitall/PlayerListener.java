@@ -2,9 +2,14 @@ package net.lethargiclion.knowitall;
 
 import java.util.logging.Logger;
 
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.PlayerBedEnterEvent;
 import org.bukkit.event.player.PlayerGameModeChangeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
@@ -83,6 +88,27 @@ public class PlayerListener implements Listener {
                 event.getPlayer().getName(),
                 KnowItAll.locToString(event.getPlayer().getLocation()),
                 event.getNewGameMode().toString()
+            ));
+    }
+    
+    public void onEntityDeath(EntityDeathEvent event) {
+        if(event.getEntityType() == EntityType.PLAYER && event instanceof PlayerDeathEvent) {
+            PlayerDeathEvent pevent = (PlayerDeathEvent)event;
+            Player p = (Player)pevent.getEntity();
+            playerLogger.info(String.format(
+                    "[DEATH] %s@%s died: %s",
+                    p.getName(),
+                    KnowItAll.locToString(p.getLocation()),
+                    pevent.getDeathMessage()
+                ));
+        }
+    }
+    
+    public void onPlayerBedEnter(PlayerBedEnterEvent event) {
+        playerLogger.info(String.format(
+                "[SLEEP] %s@%s entered a bed",
+                event.getPlayer().getName(),
+                KnowItAll.locToString(event.getPlayer().getLocation())
             ));
     }
     
