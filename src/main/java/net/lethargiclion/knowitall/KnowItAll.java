@@ -17,6 +17,7 @@ package net.lethargiclion.knowitall;
     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import org.bukkit.Location;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -37,4 +38,13 @@ public class KnowItAll extends JavaPlugin {
 		getCommand("command").setExecutor(commandExecutor);
 
 	}
+	
+	/**
+	 * Utility method for translating org.bukkit.Location into a string for logging.
+	 * @param where The Location to convert to a string.
+	 * @return String representation of the Location.
+	 */
+	   public static String locToString(Location where) {
+	        return String.format("(%s/%d,%d,%d)", where.getWorld().getName(), where.getBlockX(), where.getBlockY(), where.getBlockZ());
+	    }
 }
