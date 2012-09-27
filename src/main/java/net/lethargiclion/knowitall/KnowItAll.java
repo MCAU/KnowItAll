@@ -61,11 +61,11 @@ public class KnowItAll extends JavaPlugin {
 
 		// Register event listeners
 		playerListener = new PlayerListener(playerLog);
-		getServer().getPluginManager().registerEvents(playerListener, this);
+		pm.registerEvents(playerListener, this);
 		chatListener = new ChatListener(chatLog);
-		getServer().getPluginManager().registerEvents(chatListener, this);
+		pm.registerEvents(chatListener, this);
 		commandListener = new CommandListener(commandLog);
-		getServer().getPluginManager().registerEvents(commandListener, this);
+		pm.registerEvents(commandListener, this);
 
 		// Flush logs to disk every 5 seconds
 		schedId = this.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
