@@ -12,10 +12,10 @@ import net.lethargiclion.knowitall.KnowItAll;
 
 public class CommandListener implements Listener {
     
-    Logger log;
+    Logger commandLogger;
     
     public CommandListener(Logger l) {
-        log = l;
+        commandLogger = l;
     }
     
     @EventHandler(priority=EventPriority.HIGHEST)
@@ -25,19 +25,19 @@ public class CommandListener implements Listener {
                 KnowItAll.locToString(event.getPlayer().getLocation()),
                 event.getMessage()
             );
-        log.info(logMessage);
+        commandLogger.info(logMessage);
     }
     
     @EventHandler(priority=EventPriority.HIGHEST)
     public void onServerCommand(ServerCommandEvent event) {
         String logMessage = String.format("[CONSOLE] %s", event.getCommand());
-        log.info(logMessage);
+        commandLogger.info(logMessage);
     }
     
     @EventHandler(priority=EventPriority.HIGHEST)
     public void onRemoteServerCommand(RemoteServerCommandEvent event) {
         String logMessage = String.format("[RCON] %s", event.getCommand());
-        log.info(logMessage);
+        commandLogger.info(logMessage);
     }
 
 }
