@@ -91,19 +91,18 @@ public class PlayerListener implements Listener {
             ));
     }
     
-    public void onEntityDeath(EntityDeathEvent event) {
-        if(event.getEntityType() == EntityType.PLAYER && event instanceof PlayerDeathEvent) {
-            PlayerDeathEvent pevent = (PlayerDeathEvent)event;
-            Player p = (Player)pevent.getEntity();
-            playerLogger.info(String.format(
-                    "[DEATH] %s@%s died: %s",
-                    p.getName(),
-                    KnowItAll.locToString(p.getLocation()),
-                    pevent.getDeathMessage()
+    @EventHandler(priority=EventPriority.MONITOR)
+    public void onPlayerDeath(PlayerDeathEvent event) {
+        Player p = event.getEntity();
+        playerLogger.info(String.format(
+                "[DEATH] %s@%s died: %s",
+                p.getName(),
+                KnowItAll.locToString(p.getLocation()),
+                event.getDeathMessage()
                 ));
-        }
     }
     
+    @EventHandler(priority=EventPriority.MONITOR)
     public void onPlayerBedEnter(PlayerBedEnterEvent event) {
         playerLogger.info(String.format(
                 "[SLEEP] %s@%s entered a bed",

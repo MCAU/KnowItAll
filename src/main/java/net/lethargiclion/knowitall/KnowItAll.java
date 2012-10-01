@@ -50,7 +50,8 @@ public class KnowItAll extends JavaPlugin {
 
 		PluginManager pm = this.getServer().getPluginManager();
 
-		getCommand("command").setExecutor(commandExecutor);
+		// No commands yet!
+		//getCommand("command").setExecutor(commandExecutor);
 		
 		if(handlers == null) handlers = new ArrayList<Handler>();
 		else handlers.clear();
