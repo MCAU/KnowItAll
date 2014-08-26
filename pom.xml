@@ -4,12 +4,14 @@
 	<groupId>net.lethargiclion</groupId>
 	<artifactId>KnowItAll</artifactId>
 	<packaging>jar</packaging>
-	<version>0.1.0</version>
+	<version>0.1.1</version>
 	<name>KnowItAll</name>
 	<url>http://maven.apache.org</url>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.bukkit</groupId>
@@ -25,6 +27,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -38,10 +41,12 @@
 			</plugin>
 		</plugins>
 	</build>
+
 	<repositories>
 		<repository>
 			<id>bukkit-repo</id>
 			<url>http://repo.bukkit.org/content/groups/public</url>
 		</repository>
 	</repositories>
+
 </project>

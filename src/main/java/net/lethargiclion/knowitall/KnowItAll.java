@@ -17,6 +17,7 @@ package net.lethargiclion.knowitall;
     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -99,7 +100,7 @@ public class KnowItAll extends JavaPlugin {
         log.setUseParentHandlers(false);
         
         try {
-            FileHandler fh = new FileHandler(filename, true);
+            FileHandler fh = new FileHandler("logs" + File.separator + filename, true);
             log.addHandler(fh);
             fh.setFormatter(new LogFormatter());
         } catch (SecurityException e) {

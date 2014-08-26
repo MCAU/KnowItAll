@@ -2,20 +2,12 @@ package net.lethargiclion.knowitall;
 
 import java.util.logging.Logger;
 
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.PlayerBedEnterEvent;
-import org.bukkit.event.player.PlayerGameModeChangeEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerKickEvent;
-import org.bukkit.event.player.PlayerLoginEvent;
-import org.bukkit.event.player.PlayerPreLoginEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.*;
 
 public class PlayerListener implements Listener {
 
@@ -33,12 +25,12 @@ public class PlayerListener implements Listener {
     */
     
     @EventHandler(priority=EventPriority.MONITOR)
-    public void onPlayerPreLogin(PlayerPreLoginEvent event) {
+    public void onPlayerPreLogin(AsyncPlayerPreLoginEvent event) {
         playerLogger.info(String.format(
                 "[CONNECT] %s/%s %s",
                 event.getName(),
                 event.getAddress().getHostAddress(),
-                event.getResult() == PlayerPreLoginEvent.Result.ALLOWED ? "connected" : String.format("denied connection: %s", event.getKickMessage())
+                event.getLoginResult() == AsyncPlayerPreLoginEvent.Result.ALLOWED ? "connected" : String.format("denied connection: %s", event.getKickMessage())
             ));
     }
     
