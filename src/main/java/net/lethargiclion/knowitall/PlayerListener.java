@@ -27,8 +27,9 @@ public class PlayerListener implements Listener {
     @EventHandler(priority=EventPriority.MONITOR)
     public void onPlayerPreLogin(AsyncPlayerPreLoginEvent event) {
         playerLogger.info(String.format(
-                "[CONNECT] %s/%s %s",
+                "[CONNECT] %s/%s/%s %s",
                 event.getName(),
+                event.getUniqueId(),
                 event.getAddress().getHostAddress(),
                 event.getLoginResult() == AsyncPlayerPreLoginEvent.Result.ALLOWED ? "connected" : String.format("denied connection: %s", event.getKickMessage())
             ));
